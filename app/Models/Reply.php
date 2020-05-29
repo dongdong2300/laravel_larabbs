@@ -2,6 +2,11 @@
 
 namespace App\Models;
 
+/**
+ * @property $content
+ * @property $user_id
+ * @property $topic_id
+ */
 class Reply extends Model
 {
     protected $fillable = ['content'];
