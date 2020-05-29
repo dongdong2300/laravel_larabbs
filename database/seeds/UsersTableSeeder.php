@@ -25,8 +25,7 @@ class UsersTableSeeder extends Seeder
             ->times(10)
             ->make()
             ->each(function ($user, $index)
-            use ($faker, $avatars)
-            {
+            use ($faker, $avatars) {
                 // 从头像数组中随机取出一个并赋值
                 $user->avatar = $faker->randomElement($avatars);
             });
@@ -38,10 +37,10 @@ class UsersTableSeeder extends Seeder
         User::insert($user_array);
 
         // 单独处理第一个用户的数据
-        $user = User::find(1);
-        $user->name = 'Summer';
-        $user->email = 'summer@example.com';
-        $user->avatar = 'https://cdn.learnku.com/uploads/images/201710/14/1/ZqM7iaP4CR.png';
+        $user         = User::find(1);
+        $user->name   = 'xuedong';
+        $user->email  = 'dong_flying@163.com';
+        $user->avatar = 'http://larabbs.test/uploads/images/avatars/202005/28/11_1590655003_zp2h6HLopc.png';
         $user->save();
 
     }
