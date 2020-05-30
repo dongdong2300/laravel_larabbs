@@ -56,8 +56,21 @@
                             {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('users.show', Auth::id()) }}">个人中心</a>
-                            <a class="dropdown-item" href="{{ route('users.edit', Auth::id()) }}">编辑资料</a>
+                            @can('manage_contents')
+                                <a class="dropdown-item" href="{{ url(config('administrator.uri')) }}">
+                                    <i class="fa fa-tachometer mr-2" aria-hidden="true"></i>
+                                    管理后台
+                                </a>
+                                <div class="dropdown-divider"></div>
+                            @endcan
+                            <a class="dropdown-item" href="{{ route('users.show', Auth::id()) }}">
+                                <i class="fa fa-user-circle-o mr-2" aria-hidden="true"></i>
+                                个人中心
+                            </a>
+                            <a class="dropdown-item" href="{{ route('users.edit', Auth::id()) }}">
+                                <i class="fa fa-pencil-square-o mr-2"></i>
+                                编辑资料
+                            </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" id="logout" href="#">
                                 <form action="{{ route('logout') }}" method="POST"
