@@ -42,6 +42,12 @@
                             <i class="fa fa-plus"></i>
                         </a>
                     </li>
+                    <li class="nav-item notification-badge">
+                        <a class="nav-link mr-3 badge badge-pill badge-{{ Auth::user()->notification_count > 0 ? 'hint' : 'secondary' }} text-white"
+                           href="{{ route('notifications.index') }}">
+                            {{ Auth::user()->notification_count }}
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,7 +60,8 @@
                             <a class="dropdown-item" href="{{ route('users.edit', Auth::id()) }}">编辑资料</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" id="logout" href="#">
-                                <form action="{{ route('logout') }}" method="POST" onsubmit="return confirm('确定要退出吗？');">
+                                <form action="{{ route('logout') }}" method="POST"
+                                      onsubmit="return confirm('确定要退出吗？');">
                                     {{ csrf_field() }}
                                     <button class="btn btn-block btn-danger" type="submit" name="button">退出</button>
                                 </form>
