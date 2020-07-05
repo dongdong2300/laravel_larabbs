@@ -9,6 +9,19 @@ use Illuminate\Http\Request;
 
 class TopicsController extends Controller
 {
+    public function index(Request $request, Topic $topic)
+    {
+        $query = $topic->query();
+
+        if ($categoryId = $request->category_id) {
+            $query->where('category_id', $categoryId);
+        }
+
+        $topics = $query->with('user', 'category')->withOrder($request->order)->paginate();
+
+        return TopicResource::collection($topics);
+    }
+
     public function store(TopicRequest $request, Topic $topic)
     {
         $topic->fill($request->all());
