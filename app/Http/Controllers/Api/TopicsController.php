@@ -68,4 +68,13 @@ class TopicsController extends Controller
 
         return response(null, 204);
     }
+
+    public function show($topicId)
+    {
+        $topic = QueryBuilder::for(Topic::class)
+            ->allowedIncludes('user', 'category')
+            ->findOrFail($topicId);
+
+        return new TopicResource($topic);
+    }
 }
