@@ -1,0 +1,2 @@
+Send POST https://api.jpush.cn/v3/push, body:{"platform":"all","audience":{"registration_id":["test_registration_id"]},"notification":{"alert":"\u771f\u7684\u80fd\u63a8\u9001\u5417\uff1f"},"options":{"sendno":905698227,"apns_production":false}}, times:1
+Send POST https://api.jpush.cn/v3/push, body:{"platform":"all","audience":{"registration_id":["test_registration_id"]},"notification":{"alert":"112233"},"options":{"sendno":379709177,"apns_production":false}}, times:1
