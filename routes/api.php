@@ -32,6 +32,9 @@ Route::prefix('v1')
                 // 删除token
                 Route::delete('authorizations/current', 'AuthorizationsController@destroy')
                     ->name('authorizations.destroy');
+                // 小程序登录
+                Route::post('weapp/authorizations', 'AuthorizationsController@weappStore')
+                    ->name('weapp.authorizations.store');
             });
 
         Route::middleware('throttle:' . config('api.rate_limits.access'))
