@@ -35,6 +35,9 @@ Route::prefix('v1')
                 // 小程序登录
                 Route::post('weapp/authorizations', 'AuthorizationsController@weappStore')
                     ->name('weapp.authorizations.store');
+                // 小程序注册
+                Route::post('weapp/users', 'UsersController@weappStore')
+                    ->name('weapp.users.store');
             });
 
         Route::middleware('throttle:' . config('api.rate_limits.access'))
@@ -74,6 +77,8 @@ Route::prefix('v1')
                         ->name('user.show');
                     // 编辑登录用户信息
                     Route::patch('user', 'UsersController@update')
+                        ->name('user.update');
+                    Route::put('user', 'UsersController@update')
                         ->name('user.update');
                     // 上传图片
                     Route::post('images', 'ImagesController@store')
