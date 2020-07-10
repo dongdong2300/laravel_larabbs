@@ -19,8 +19,9 @@ class TopicResource extends JsonResource
         $data['user_id']     = (int)$data['user_id'];
         $data['category_id'] = (int)$data['category_id'];
 
-        $data['user']     = new UserResource($this->whenLoaded('user'));
-        $data['category'] = new CategoryResource($this->whenLoaded('category'));
+        $data['user']        = new UserResource($this->whenLoaded('user'));
+        $data['category']    = new CategoryResource($this->whenLoaded('category'));
+        $data['top_replies'] = ReplyResource::collection($this->whenLoaded('topReplies'));
 
         return $data;
     }
