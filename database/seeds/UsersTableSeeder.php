@@ -40,7 +40,7 @@ class UsersTableSeeder extends Seeder
         $user         = User::find(1);
         $user->name   = 'xuedong';
         $user->email  = 'dong_flying@163.com';
-        $user->avatar = 'http://larabbs.test/uploads/images/avatars/202005/28/11_1590655003_zp2h6HLopc.png';
+        $user->avatar = config('app.url') . '/uploads/images/avatars/202005/28/11_1590655003_zp2h6HLopc.png';
         $user->save();
 
         // 初始化用户角色，将 1 号用户指派为『站长』
